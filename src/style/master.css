@@ -17,3 +17,7 @@ body {
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
     background-color: #212529;
 }
+
+:root{
+    --b-border:1px solid #495057;
+}
