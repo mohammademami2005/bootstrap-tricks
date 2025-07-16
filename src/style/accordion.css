@@ -1,0 +1,66 @@
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+            background-color: #212529;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+
+            >ul {
+                width: 60vw;
+                border: 1px solid #495057;
+                list-style-type: none;
+                background-color: #212529;
+                border-radius: 10px;
+                overflow: hidden;
+
+                >li {
+                    width: 100%;
+                    height: auto;
+
+                    >button {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        width: 100%;
+                        height: 65px;
+                        background-color: transparent;
+                        outline: none;
+                        border: 1px solid #495057;
+                        color: white;
+                        font-size: 18px;
+                        padding-inline:5%;
+                        >span{}
+                        >svg{
+                            fill: #e3e3e3;
+                        }
+                    }
+                    >p{
+                        /* padding: 5%; */
+                        color: rgb(216, 213, 213);
+                        font-size: 16px;
+                        height: 0px;
+                        overflow: hidden;
+                        opacity: 0;
+
+                    }
+                 
+                }
+            }
+        }
+        .accordionBody{
+            height: fit-content;
+            padding: 5%;
+            transition: all 0.4s ease-in-out;
+            /* opacity: 1; */
+        }
+        .arrow{
+            transition: all .4s ease-in-out;
+            transform: rotate(180deg);
+        }
