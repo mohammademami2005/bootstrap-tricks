@@ -11,17 +11,18 @@ btn.forEach(button => {
 })
 // console.log(allArrows);
 
-accordionItems.forEach((e)=>{
+accordionItems.forEach((e) => {
     const accordionbody = e.lastElementChild // this is p element
 
     const thisBtn = e.firstElementChild;
     const icon = thisBtn.lastElementChild;
 
-    e.addEventListener("click" , ()=>{
+    e.addEventListener("click", () => {
         const allArrows = document.querySelectorAll("button>svg")
         allAccordionBodies.forEach((body) => {
             if (body !== accordionbody) {
                 body.classList.remove("accordionBody");
+                    // accordionbody.style.opacity = "0";
             }
         });
         allArrows.forEach((arrow) => {
@@ -30,10 +31,10 @@ accordionItems.forEach((e)=>{
             }
         });
         accordionbody.classList.toggle("accordionBody");
-        setTimeout(()=>{
-            accordionbody.style.opacity = "1";
-            accordionbody.style.transition = 'all 0.5s linear';
-        },500)
+        // setTimeout(() => {
+        //     accordionbody.style.opacity = "1";
+        //     accordionbody.style.transition = 'all 0.4s linear';
+        // }, 500)
         icon.classList.toggle("arrow");
 
     })
