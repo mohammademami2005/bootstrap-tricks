@@ -1,7 +1,15 @@
 body{
     position: relative;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    padding: 10px;
+    >h1{
+        color: white;
+        text-align: center;
+
+    }
 }
 .alert {
+    direction: ltr;
     width: fit-content;
     max-width: 350px;
     border: 1px solid gainsboro;
@@ -13,10 +21,10 @@ body{
     border-radius: 8px;
     padding: 3%;
     color: white;
-    position: absolute;
+    /* position: absolute;
     top: 0;
     right: 0;
-    z-index: 78888888;
+    z-index: 78888888; */
     margin-top: 10px;
     >img {}
 
@@ -30,26 +38,28 @@ body{
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: gray;
-        border: 1px solid inherit;
+        background-color: inherit;
+        border: 1px solid white;
+        color: white;
+        font-size: 15px;
     }
 }
 
 .errorAlert {
-    border: 1px solid red;
-    background-color: rgba(255, 0, 0, 0.066);
-
+    border: 1px solid rgb(245, 245, 245);
+    background-color: rgba(255, 0, 0, 0.486);
+    padding: 5%;
 }
 
 .welcomeAlert {
     border: 1px solid gray;
-    background-color: rgba(128, 128, 128, 0.13);
+    background-color: rgba(255, 136, 0, 0.61);
 
 }
 
 .sampleAlert {
-    border: 1px solid green;
-    background-color: rgba(117, 214, 60, 0.315);
+    border: 1px solid rgb(189, 231, 238);
+    background-color: rgba(88, 90, 87, 0.315);
 
 }
 
@@ -61,11 +71,13 @@ body{
 
 .container {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    gap: 2%;
-    width: 100%;
-    height: 50vh;
-    flex-wrap: wrap;
+    gap: 1%;
+    padding: 5px;
+    width: 40%;
+    height: 90vh;
+    /* flex-wrap: wrap; */
 }
 
 #alert,
@@ -77,5 +89,17 @@ body{
     background-color: darkgray;
     color: white;
     border: none;
-    height: 50%;
+    height: 20%;
+    font-size: 18px;
+    border-radius: 15px;
 }
+
+#showAlert{
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 10000000;
+    width: 40%;
+    /* height: 100%; */
+}
+

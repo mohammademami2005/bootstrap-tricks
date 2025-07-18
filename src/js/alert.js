@@ -2,14 +2,14 @@ const sampleAlert = document.querySelector("#alert");
 const welcomeAlert = document.querySelector("#welcomeAlert");
 const errorAlert = document.querySelector("#errorAlert");
 const importantAlert = document.querySelector("#importantAlert");
-const body = document.querySelector("body")
+const result = document.querySelector("#showAlert")
 
 
 
 
 const sampleAlert1 = {
     type: "autoClose",
-    message: "this is an error alert",
+    message: "this is a  alert",
     icon: "",
     styleClass: 'sampleAlert',
 }
@@ -39,10 +39,11 @@ const createAlert = (message, icon, type, styleClass) => {
     const alertContent = document.createElement("p")
     const alertCloseBtn = document.createElement("button")
 
-    body.appendChild(alert)
+    result.appendChild(alert)
     icon ? alert.prepend(alertIcon) : undefined;
     alert.classList.add("alert", styleClass)
     alertCloseBtn.textContent = '×'
+    alertCloseBtn.classList.add("alert-close")
     alertContent.textContent = message
     alert.appendChild(alertContent)
 
@@ -55,7 +56,7 @@ const createAlert = (message, icon, type, styleClass) => {
     if (type == "autoClose") {
         setTimeout(() => {
             alert.remove()
-        }, 2000);
+        }, 3000);
     } else if (type === "client close") {
         alert.appendChild(alertCloseBtn)
         closerAlert()
