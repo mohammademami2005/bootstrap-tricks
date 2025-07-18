@@ -1,0 +1,110 @@
+@import url(master.css);
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    >.container {
+        width: 500px;
+        height: 300px;
+        border: var(--b-border);
+        padding: 3%;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+        margin-top: 150px;
+
+        >button {
+            background-color: transparent;
+            border: none;
+            /* color: white; */
+            position: absolute;
+            top: 47%;
+            color: white;
+            cursor: pointer;
+        }
+
+        >#backward {
+            left: 0;
+        }
+
+        >#forward {
+            right: 0;
+        }
+
+        >ul {
+            border: var(--b-border);
+            width: 100%;
+            height: 100%;
+            padding: 1%;
+            border-radius: 4px;
+            position: relative;
+            /* overflow: hidden; */
+
+            >li {
+                border: 1px solid red;
+                position: absolute;
+
+                top: 0;
+                width: 100%;
+                height: 100%;
+                transition: transform 1s ease-in-out;
+
+                &:nth-last-of-type(1) {
+                    background-color: red;
+                }
+
+                &:nth-last-of-type(2) {
+                    background-color: blue;
+                }
+
+                &:nth-last-of-type(3) {
+                    background-color: green;
+                }
+
+                >figure {
+                    width: 100%;
+                    height: 100%;
+
+                    >img {
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+.show {
+    left: 0;
+    transform: translateX(500px);
+}
+
+.plus {
+    transform: translateX(1000px);
+}
+
+.backShow {
+    transform: translateX(-500px);
+}
+
+.backPlus {
+    transform: translateX(-1000px);
+}
+
+.myForward {
+    left: -500px;
+}
+
+.myBackward {
+    left: 500px;
+}
+
+.firstItem {
+    left: 0;
+}
