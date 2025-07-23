@@ -1,52 +1,48 @@
-const backward = document.querySelector("#backward")
-const forward = document.querySelector("#forward")
-const carousel = document.querySelector("ul")
-const items = document.querySelectorAll("ul > li")
-const firstItem = document.querySelector("#firstLi")
+const backward = document.querySelector("#backward");
+const forward = document.querySelector("#forward");
+const items = document.querySelectorAll("ul > li");
 
+let currentIndex = 0;
 
-let itemIndex = 0
-let isForwardTrue = true
+function resetClasses() {
+    items.forEach(item => {
+        item.classList.remove("active", "next", "prev");
+    });
+}
 
+function updateCarousel(newIndex, direction) {
+    resetClasses();
 
-console.log(Array.from(items))
+    const prevIndex = currentIndex;
+    currentIndex = newIndex;
 
-forward.addEventListener("click", () => {
-    isForwardTrue = true
+    // آیتم فعلی
+    items[currentIndex].classList.add("active");
 
-    items[itemIndex].classList.replace("backPlus", "plus")
-    itemIndex++
-    if (itemIndex > items.length - 1) {
-        itemIndex = 0
-        items.forEach((item, i) => {
-            item.classList.remove('show', 'plus' , "firstItem")
-        })
-    }
-    items[itemIndex].classList.add("show")
-    console.log(Array.from(items))
-})
-
-backward.addEventListener("click", () => {
-    isForwardTrue = false
-    items[itemIndex].classList.replace("plus", "backPlus")
-    itemIndex--
-    if (itemIndex < 0) {
-        itemIndex = items.length - 1
-    }
-    items[itemIndex].classList.add("backShow")
-    console.log(Array.from(items))
-})
-
-let firstClass = () => {
-    firstItem.classList.add("firstItem")
-    if (isForwardTrue) {
-        items.forEach((item) => {
-            item.classList.add("myForward")
-        })
-    } else {
-        items.forEach((item) => {
-            item.classList.add("myBackward")
-        })
+    if (prevIndex !== currentIndex) {
+        if (direction === "forward") {
+            items[prevIndex].classList.add("prev");
+        } else if (direction === "backward") {
+            items[prevIndex].classList.add("next");
+        }
     }
 }
-firstClass()
+
+
+forward.addEventListener("click", () => {
+    let newIndex = currentIndex + 1;
+    if (newIndex >= items.length) newIndex = 0;
+    updateCarousel(newIndex, "forward");
+});
+
+backward.addEventListener("click", () => {
+    let newIndex = currentIndex - 1;
+    if (newIndex < 0) newIndex = items.length - 1;
+    updateCarousel(newIndex, "backward");
+});
+
+// مقدار اولیه
+updateCarousel(currentIndex, "forward");
+
+    let arr =  Array.from(items)
+    console.log(arr)

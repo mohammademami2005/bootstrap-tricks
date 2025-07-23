@@ -1,45 +1,48 @@
-const arrowSvg = '<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/></svg>'
-const btn = document.querySelectorAll('button')
-const svgs = document.querySelectorAll('button>svg')
-const accordionItems = document.querySelectorAll("ul>li")
-const allAccordionBodies = document.querySelectorAll("ul>li>p")
+const arrowSvg = '<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/></svg>';
+const btn = document.querySelectorAll('button');
+const accordionItems = document.querySelectorAll("ul>li");
+const allAccordionBodies = document.querySelectorAll("ul>li>p");
 
 
+allAccordionBodies.forEach(item => {
+    let accordionBodyHeight = item.clientHeight;
+    item.setAttribute("data-height", accordionBodyHeight);
+    item.style.height = "0";
+});
 
 btn.forEach(button => {
-    button.insertAdjacentHTML('beforeend', arrowSvg)
-})
-// console.log(allArrows);
+    button.insertAdjacentHTML('beforeend', arrowSvg);
+});
 
-accordionItems.forEach((e) => {
-    const accordionbody = e.lastElementChild // this is p element
+accordionItems.forEach(e => {
+    const accordionbody = e.lastElementChild; 
+    const thisBtn = e.firstElementChild; 
+    const icon = thisBtn.lastElementChild; 
 
-    const thisBtn = e.firstElementChild;
-    const icon = thisBtn.lastElementChild;
-
-    e.addEventListener("click", () => {
-        const allArrows = document.querySelectorAll("button>svg")
-        allAccordionBodies.forEach((body) => {
+    thisBtn.addEventListener("click", () => {
+        // بستن همه قبل از باز کردن یکی
+        allAccordionBodies.forEach(body => {
             if (body !== accordionbody) {
+                body.style.height = "0px";
                 body.classList.remove("accordionBody");
-                    // accordionbody.style.opacity = "0";
             }
         });
-        allArrows.forEach((arrow) => {
+
+        document.querySelectorAll("button>svg").forEach(arrow => {
             if (arrow !== icon) {
                 arrow.classList.remove("arrow");
             }
         });
-        accordionbody.classList.toggle("accordionBody");
-        // setTimeout(() => {
-        //     accordionbody.style.opacity = "1";
-        //     accordionbody.style.transition = 'all 0.4s linear';
-        // }, 500)
+
+        accordionbody.classList.toggle("accordionBody")
+
+        // باز یا بسته کردن این یکی
+        if (accordionbody.style.height === "0px" || accordionbody.style.height === "") {
+            accordionbody.style.height = accordionbody.getAttribute("data-height") + "px";
+        } else {
+            accordionbody.style.height = "0px";
+        }
+
         icon.classList.toggle("arrow");
-
-    })
-})
-
-
-
-
+    });
+});

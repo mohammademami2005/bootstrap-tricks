@@ -53,7 +53,7 @@
                         /* padding: 5%; */
                         color: rgb(216, 213, 213);
                         font-size: 16px;
-                        height: 0px;
+                        /* height: 0px; */
                         overflow: hidden;
                         opacity: 0;
                         line-height: 20px;
@@ -66,11 +66,11 @@
             }
         }
         .accordionBody{
-            height: fit-content;
+            /* height: fit-content; */
             padding: 5%;
             opacity: 1;
             transition-property: height, padding, opacity;
-            transition-duration: 0.4s , 0.4s, 0.4s;
+            transition-duration: 1s , 0.4s, 0.4s;
             transition-timing-function: ease-in-out;
             transition-delay: 0s, 0s, 0.5s;
         }
