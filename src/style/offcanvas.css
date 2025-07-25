@@ -31,29 +31,24 @@ body {
 
 
 
-    >#offcanvasContainer {
+    >#overlay {
         position: fixed;
         inset: 0;
         width: 100vw;
         height: 100vh;
-        pointer-events: none;
-
-        >* {
-            position: absolute;
-            top: 0;
-            left: 0;
-        }
-
-        >#overlay {
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.418);
-            opacity: 0;
-            transition: opacity .4s ease;
-
-        }
+        background-color: rgba(0, 0, 0, 0.418);
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        opacity: 0;
+        transition: opacity .4s ease;
+        transform: translateX(-100%);
+        border: 1px solid white;
 
         >#offcanvas {
+            /* position: absolute;
+            left: 0; */
+
             width: 40vw;
             height: 100vh;
             background-color: white;
@@ -117,10 +112,11 @@ body {
             }
         }
     }
+
+
 }
 
-.show  {
+.show {
     opacity: 1 !important;
     transform: translateX(0) !important;
 }
-
