@@ -1,4 +1,5 @@
-const backward = document.querySelector("#backward");
+export function carousel(params) {
+    const backward = document.querySelector("#backward");
 const forward = document.querySelector("#forward");
 const items = document.querySelectorAll("ul > li");
 
@@ -46,3 +47,5 @@ updateCarousel(currentIndex, "forward");
 
     let arr =  Array.from(items)
     console.log(arr)
+
+}

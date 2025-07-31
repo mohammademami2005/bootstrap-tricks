@@ -1,14 +1,11 @@
-const arrowSvg = '<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/></svg>';
+export function accordion(params) {
+    const arrowSvg = '<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/></svg>';
 const btn = document.querySelectorAll('button');
 const accordionItems = document.querySelectorAll("ul>li");
 const allAccordionBodies = document.querySelectorAll("ul>li>p");
 
 
-// allAccordionBodies.forEach(item => {
-//     let accordionBodyHeight = item.scrollHeight;
-//     item.setAttribute("data-height", accordionBodyHeight);
-//     item.style.height = "0";
-// });
+
 
 btn.forEach(button => {
     button.insertAdjacentHTML('beforeend', arrowSvg);
@@ -54,3 +51,5 @@ accordionItems.forEach(e => {
         icon.classList.toggle("arrow");
     });
 });
+
+}
