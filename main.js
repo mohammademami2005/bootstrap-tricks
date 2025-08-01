@@ -11,7 +11,6 @@ import { offcanvas } from './src/offcanvas.js';
 
 document.addEventListener("DOMContentLoaded", () => {
   alert();
-  alert
   carousel();
   accordion();
   offcanvas();
