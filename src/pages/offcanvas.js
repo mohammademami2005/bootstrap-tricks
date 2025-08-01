@@ -1,4 +1,4 @@
-import { offcanvas } from '../comonents/offcanvas';
+import { offcanvas } from '../components/offcanvas';
 import '../style/master.css';
-import 'offcanvas.css'
+import '../style/offcanvas.css'
 offcanvas()
