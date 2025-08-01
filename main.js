@@ -4,13 +4,14 @@ import './style/master.css';
 import './style/carousel.css';
 import './style/offcanvas.css';
 
-import { alert } from './js/alert.js';
-import { carousel } from './js/carousel.js';
-import { accordion } from './js/accordion.js';
-import { offcanvas } from './js/offcanvas.js';
+import { alert } from './src/alert.js';
+import { carousel } from './src/carousel.js';
+import { accordion } from './src/accordion.js';
+import { offcanvas } from './src/offcanvas.js';
 
 document.addEventListener("DOMContentLoaded", () => {
   alert();
+  alert
   carousel();
   accordion();
   offcanvas();
